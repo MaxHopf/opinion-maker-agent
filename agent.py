@@ -14,7 +14,10 @@ if not hf_token:
 # Initialize the client
 client = InferenceClient("meta-llama/Llama-3.2-3B-Instruct", token=hf_token)
 
-# Test if the model responds
-output = client.text_generation("The current political situation in Germany is", max_new_tokens=100)
+# Improved prompt
+prompt = "Analyze the current political situation in Germany and provide key insights."
+
+# Get AI response
+output = client.text_generation(prompt, max_new_tokens=150)
 
 print(output)
